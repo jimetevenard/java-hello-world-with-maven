@@ -4,13 +4,13 @@
   <groupId>com.jimetevenard.sample</groupId>
   <artifactId>hello-world-maven</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.3-RC2</version>
+  <version>1.0.3-SNAPSHOT</version>
   <name>Hello World with Maven</name>
 
   <scm>
     <developerConnection>scm:git:https://github.com/jimetevenard/java-hello-world-with-maven.git</developerConnection>
     <url>https://github.com/jimetevenard/java-hello-world-with-maven</url>
-    <tag>v1.0.3-RC2</tag>
+    <tag>HEAD</tag>
   </scm>
 
 
