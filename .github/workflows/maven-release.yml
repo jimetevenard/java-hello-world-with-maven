@@ -51,5 +51,6 @@ jobs:
            -DdevelopmentVersion=$INPUT_DEV_VERSION
            -Dusername=$GITHUB_ACTOR
            -Dpassword=${{ secrets.GITHUB_TOKEN }}
-           -DaltDeploymentRepository=$MAVEN_SERVER_ID::$MAVEN_SERVER_LAYOUT::$MAVEN_SERVER_URI
-           -s $GITHUB_WORKSPACE/settings.xml
+           -Darguments="
+              -DaltDeploymentRepository=$MAVEN_SERVER_ID::$MAVEN_SERVER_LAYOUT::$MAVEN_SERVER_URI
+              -s $GITHUB_WORKSPACE/settings.xml"
