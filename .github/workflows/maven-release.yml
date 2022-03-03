@@ -4,13 +4,10 @@ name: Maven Release
 on:
   workflow_dispatch:
     inputs:
-      # Les inputs seront injectés sous forme de variable d'environnement par Github Actions
-      # Le format sera normalisé : `Release version` devient `$INPUT_RELEASE_VERSION`
-      # Voir https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputs
-      Release version:
+      releaseVersion:
         description: 'Version to produce'
         required: true
-      Dev version:
+      devVersion:
         description: 'Next SNAPSHOT version'
         required: true
         default: '1.0.1-SNAPSHOT'
@@ -19,6 +16,9 @@ env:
   MAVEN_SERVER_ID: github
   MAVEN_SERVER_LAYOUT: default
   MAVEN_SERVER_URI: https://maven.pkg.github.com/jimetevenard/java-hello-world-with-maven
+  INPUT_RELEASE_VERSION: ${{ github.event.inputs.releaseVersion }}
+  INPUT_DEV_VERSION: ${{ github.event.inputs.devVersion }}
+  
 
 jobs:
   build:
