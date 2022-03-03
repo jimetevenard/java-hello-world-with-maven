@@ -2,11 +2,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>info.maigo.lab.hello</groupId>
-  <artifactId>maigolab_hello</artifactId>
+  <groupId>com.jimetevenard.sample</groupId>
+  <artifactId>hello-world-maven</artifactId>
   <packaging>jar</packaging>
   <version>1.0.1-SNAPSHOT</version>
-  <name>maigolab_hello</name>
+  <name>Hello World with Maven</name>
   <url>http://maven.apache.org</url>
 
   <build>
@@ -18,8 +18,7 @@
         <configuration>
           <mainClass>info.maigo.lab.hello.App</mainClass>
           <arguments>
-            <argument>niwasawa</argument>
-            <argument>maigolab</argument>
+            <argument>jimetevenard</argument>
           </arguments>
         </configuration>
       </plugin>
