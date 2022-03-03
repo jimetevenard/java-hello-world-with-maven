@@ -56,8 +56,9 @@ jobs:
               -s $GITHUB_WORKSPACE/settings.xml"
       env:
         GITHUB_TOKEN: ${{ github.token }}
-      
+        
     - name: Publish Github Release
       uses: softprops/action-gh-release@v1
       with:
+        tag_name: v${{ INPUT_RELEASE_VERSION }}
         files: target/*.jar # Attachement du jar produit à la release Github
