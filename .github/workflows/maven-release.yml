@@ -60,5 +60,5 @@ jobs:
     - name: Publish Github Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: v${{ INPUT_RELEASE_VERSION }}
+        tag_name: v${{ env.INPUT_RELEASE_VERSION }}
         files: target/*.jar # Attachement du jar produit à la release Github
