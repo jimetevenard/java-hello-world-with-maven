@@ -56,9 +56,21 @@ jobs:
               -s $GITHUB_WORKSPACE/settings.xml"
       env:
         GITHUB_TOKEN: ${{ github.token }}
-        
+
+    # Récupération du nom du tag git créé par le Maven-release-plugin,
+    # qui sera ici l'avant dernier commit.
+    # 
+    # Le format du tag (ex: préfixe avec 'v') est défini dans le pom.xml,
+    # on ne souhaite pas le répeter ici pour des raisons de maintenance.
+    - name: Get tag name
+      id: tag-name
+      run: |
+           export TAG=$(git describe --tags --abbrev=0 HEAD~)
+           echo ""::set-output name=TAG::$TAG"
+    
+    # Création d'une Release Github
     - name: Publish Github Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: v${{ env.INPUT_RELEASE_VERSION }}
+        tag_name: ${{ steps.tag-name.outputs.TAG }} # On récupère le tag extrait au step précédent.
         files: target/*.jar # Attachement du jar produit à la release Github
