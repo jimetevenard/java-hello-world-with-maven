@@ -9,7 +9,6 @@ env:
   MAVEN_SERVER_ID: github
   MAVEN_SERVER_LAYOUT: default
   MAVEN_SERVER_URI: https://maven.pkg.github.com/jimetevenard/java-hello-world-with-maven
-  MAVEN_REPOSITORY: ${{ MAVEN_SERVER_ID }}::${{ MAVEN_SERVER_LAYOUT }}::${{ MAVEN_SERVER_URI }}
 
 jobs:
   build:
@@ -35,7 +34,7 @@ jobs:
     - name: Publish to GitHub Packages Apache Maven
       run: >
            mvn deploy
-           -DaltDeploymentRepository=$MAVEN_REPOSITORY
+           -DaltDeploymentRepository=$MAVEN_SERVER_ID::$MAVEN_SERVER_LAYOUT::$MAVEN_SERVER_URI
            -s $GITHUB_WORKSPACE/settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}

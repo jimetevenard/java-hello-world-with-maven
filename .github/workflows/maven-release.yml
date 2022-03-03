@@ -1,7 +1,7 @@
 name: Maven Release
 
 # i.e. uniquement lors d'un déclenchement manuel du workflow
-on: workflow_dispatchv
+on: workflow_dispatch
 
 # Les inputs seront injectés sous forme de variable d'environnement par Github Actions
 # Le format sera normalisé : `Release version` devient `$INPUT_RELEASE_VERSION`
