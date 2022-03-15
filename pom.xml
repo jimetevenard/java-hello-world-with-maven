@@ -4,7 +4,7 @@
   <groupId>com.jimetevenard.sample</groupId>
   <artifactId>hello-world-maven</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.3-SNAPSHOT</version>
+  <version>1.0.3-RC5</version>
   <name>Hello World with Maven</name>
 
   <properties>
@@ -16,7 +16,7 @@
   <scm>
     <developerConnection>scm:git:https://github.com/jimetevenard/java-hello-world-with-maven.git</developerConnection>
     <url>https://github.com/jimetevenard/java-hello-world-with-maven</url>
-    <tag>HEAD</tag>
+    <tag>v1.0.3-RC5</tag>
   </scm>
 
   <distributionManagement>
