@@ -1,3 +1,7 @@
+# Création des releases avec le Maven Release Plugin
+# et publication des releases sur GitHub
+# ==================================================
+
 name: Maven Release
 
 # i.e. uniquement lors d'un déclenchement manuel du workflow
@@ -8,14 +12,10 @@ on:
         description: 'Version to produce'
         required: true
       devVersion:
-        description: 'Next SNAPSHOT version'
+        description: 'Next SNAPSHOT version (please suffix with --SNAPSHOT)'
         required: true
-        default: '1.0.1-SNAPSHOT'
 
 env:
-  MAVEN_SERVER_ID: github
-  MAVEN_SERVER_LAYOUT: default
-  MAVEN_SERVER_URI: https://maven.pkg.github.com/jimetevenard/java-hello-world-with-maven
   INPUT_RELEASE_VERSION: ${{ github.event.inputs.releaseVersion }}
   INPUT_DEV_VERSION: ${{ github.event.inputs.devVersion }}
   
@@ -51,9 +51,7 @@ jobs:
            -DdevelopmentVersion=$INPUT_DEV_VERSION
            -Dusername=$GITHUB_ACTOR
            -Dpassword=${{ secrets.GITHUB_TOKEN }}
-           -Darguments="
-              -DaltDeploymentRepository=$MAVEN_SERVER_ID::$MAVEN_SERVER_LAYOUT::$MAVEN_SERVER_URI
-              -s $GITHUB_WORKSPACE/settings.xml"
+           -Darguments="-s $GITHUB_WORKSPACE/settings.xml"
       env:
         GITHUB_TOKEN: ${{ github.token }}
 
